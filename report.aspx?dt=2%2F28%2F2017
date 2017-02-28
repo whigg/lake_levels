@@ -1,0 +1,611 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+    <head><title>
+	Daily Water Report
+</title><meta http-equiv="X-UA-Compatible" content="IE=7,IE=8,IE=9,IE=edge,chrome=1" /><meta charset="utf-8" /><meta name="viewport" content="width=device-width" /><link href="Content/bootstrap.min.css" rel="stylesheet" type="text/css" /><link href="Content/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" /><link href="Content/Mainstyles.css" rel="stylesheet" type="text/css" /><link href="Content/Navstyles.css" rel="stylesheet" type="text/css" /><link href="Content/Site.css" rel="stylesheet" type="text/css" />
+        <script src="Scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
+        <script src="Scripts/bootstrap.min.js" type="text/javascript"></script>
+        <script src="Scripts/nav.js" type="text/javascript"></script>
+        <script type="text/javascript" src="//use.typekit.net/rqv8uxp.js"></script>
+        <script type="text/javascript">
+            try {
+                Typekit.load();
+            } catch (e) {
+            }
+        </script>
+        
+</head>
+    <body>
+        <div id="page" class="container-fluid">
+            <div class="noPrint">
+                <header class="navbar">
+                    <div class="navbar-inner">
+                        <div class="container">
+                            <a href="//www.srpnet.com" class="pull-left brand">
+                                <img alt="SRP" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAAAUCAYAAAAwaEt4AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYxIDY0LjE0MDk0OSwgMjAxMC8xMi8wNy0xMDo1NzowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNS4xIFdpbmRvd3MiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OERFQ0FENzZFNzBDMTFFMUI1RjlCMUMzMDgyRTEyMjgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OERFQ0FENzdFNzBDMTFFMUI1RjlCMUMzMDgyRTEyMjgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4REVDQUQ3NEU3MEMxMUUxQjVGOUIxQzMwODJFMTIyOCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4REVDQUQ3NUU3MEMxMUUxQjVGOUIxQzMwODJFMTIyOCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PiwuO2cAAAOTSURBVHjaxFhNSFRRFL7zmAgp0GijbqbIqEWLatNmoIR+wBYmCVpEBcUQBCH9LIykRZFYqEMgSFRUPEgX4SaEoYVGs3ETLVoIJiKEBi5y0Q9RZufe941zvN737hvnDh343nvz7p1zz/3uueec+5IijmT8GrruZW8+iEdnFul9Au+rCc0h/77Bnh+w57eEHOEeezdA2EPYSniPcZYN9pyg60HtrdT3mrBE2EG4zNo+El4pm9fqaqDrXcIbwhHCLer3KWEhZB9dRwgpQ2uecEUZXzSkQ+szS4NsIz1DasBApli7R5hh+rcQvrL2esIC6fjDbJI2/2V9LqpJC/GNcI7QFWKvlE5CzwrZGT9JVx9t83wxvRBCEoR+rFrYIGm0SyNbCfcJGwgtipBABjGRNkbITqZDEnqHEV3F2mS/TYTfWNWC1KLvfhArPeW26ifE4wh7pXQTXsImKZsVUUVS6jCPtBeioM+w+sIy4BxhjCDdtQETG8REhOYtBXIkoaN47iU0ae1TK/dgdYXyICEaQcAM+pRia5u27VNsG0t7dxE+eyF7rpSBdC8aw+q1Yk8vaF7EyZGEfkFbDttAJ2UWRCzh93XoH7F4R5SMKK8J7GuHp0wTLoG0aZPHtAo3cpwFXO5FWY0cuZ3OE2pA4He0Z9G+HX2b4TXdjuyrxv0UtlMf7ldlDEoYPOYdVr5caYEX/NCC33N4kRxjgoz4yQLhErJNHvv/JOKGAFEDWvAuRxpp7PGwRhMx/WVsJaFllFoEaFNG6zIalvFlAD6NtK2n48WIsqBUubmyKLGI+d8SELNxzfugbqpxNMqvKFKkJA2G1SHDlCoySB6WxRHTtexoInnSdVSrccoRWfs8iergGVZmHrGgVEkhrVaxatmFSMIlKQcc6RsmPLV1CqtjeqBgPVIo8Q85mERWZbPA7ZutXmWXTpWFTMeM2DEmWPFBFESliqcqzPX9d/VxwnwMMGeZoIYyEdarMqQlrpiJyfgXWGp0kZHmYri0sJBXr7a2Pe4NU792lzmAb6Uuh3rjxIMheGSUNMXUN+Q6OXosRaYc6ZzFZwObjKsCL1oKi3XN0m+iMsQIsduhzg6U+NEi65Jgz+cjM13w6SNt0TVfKWLOOkyFuRhHCl4OPLP0fRgjc4lKEePiCNCJA1kc78ux59EYJ/YoeVEJYpJlFmLD+CRY/GyY8Y/F+N/kqm2Q8ctZ9clKEPNPgAEAh5f9U5WumAEAAAAASUVORK5CYII="/>
+                            </a>
+                            <div id="menuDiv" class="pull-right">
+                                <a class="btn btn-navbar pull-right" style="padding: 5px 7px;" data-toggle="collapse" data-target=".nav-collapse">
+                                    <input type="image" name="btnSearch1" src="images/SearchIcon.png" alt="Search" />
+                                </a>
+                                <a id="intcommNavjump" class="btn btn-navbar" href="#intcommPrimarynav">
+                                    <span style="float: right; color: #000; font-weight: 500;"><i class="icon-th-list"></i>MENU</span>
+                                </a>
+                                <div id="loginDiv" class="tk-futura-pt pull-right">
+                                    <span><a href="http://www.srpnet.com/contactus/default.aspx">Contact us</a></span>
+                                </div>
+                                <div id="searchBoxDiv" class="nav-collapse">
+                                    <form action="//www.srpnet.com/search" method="get" class="form-search">
+                                        <div class="input-append ">
+                                            <input class="span2" id="appendInputButtons" type="text" name="q" style="text-align: left" />
+                                            <button id="searchButton" class="btn" type="button" onclick=" this.form.submit(); ">
+                                                Search
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </header>
+
+                <!-- Navigation -->
+                <nav id="intcommPrimarynav" class="row-fluid">
+                    <p class="intcomm-nav_title"><span id="NavigationTitle"> Navigation</span> </p>
+                    <div id="intcommMenu" class="span12">
+                        <ul>
+                            <li><a href="javascript:void(0)" id="intcommMac" data-menu="intcommMacMenu">My account</a></li>
+                            <li><a href="javascript:void(0)" id="intcommPwr" data-menu="intcommPwrMenu">Electric service</a></li>
+                            <li><a href="javascript:void(0)" id="intcommWtr" data-menu="intcommWtrMenu">Water</a></li>
+                            <li><a href="javascript:void(0)" id="intcommEff" data-menu="intcommEffMenu">Energy savings &amp; rebates</a></li>
+                            <li><a href="javascript:void(0)" id="intcommEnv" data-menu="intcommEnvMenu">Solar energy</a></li>
+                            <li><a href="javascript:void(0)" id="intcommAbt" data-menu="intcommAbtMenu">About SRP</a></li>
+                        </ul>
+                    </div>
+                </nav>
+                <section id="intcommQuicklinks" class="row-fluid">
+                    <div id="intcommMostpopular" class="span12 intcomm-menu_selected">
+                        <ul>
+                            <li class="intcomm-quicklink_headline">
+                                <img src="images/BlueStar.png" alt="" />Most popular:</li>
+                            <li><a href="//myaccount.srpnet.com/MyAccount/Outages/Public">Outage map</a></li>
+                            <li><a href="//myaccount.srpnet.com/MyAccount2/eChexPayment.aspx">Make payment</a></li>
+                            <li><a href="//myaccount.srpnet.com/MyAccount/WebTurnOn">Start home electric service</a></li>
+                            <li><a href="//www.srpnet.com/prices/home/tod.aspx">Time of Day Plans</a></li>
+                            <li><a href="//www.srpnet.com/water/canals/distances.aspx ">Canal maps</a></li>
+                            <li><a href="//water.srpnet.com/dwr">Lake levels</a></li>
+                            <li><a href="//www.srpnet.com/contactus/default.aspx ">Contact us</a></li>
+                        </ul>
+                    </div>
+
+                    <div id="intcommMacMenu" class="span12 intcomm-menu_hidden">
+                        <ul>
+                            <li><a href="//myaccount.srpnet.com/sso/Dashboard" id="intcommMacDashboard">Dashboard</a></li>
+                            <li><a href="//myaccount.srpnet.com/MyAccount/eChexPayment.aspx" id="intcommMacMakepayment">Make payment</a></li>
+                            <li><a href="//myaccount.srpnet.com/MyAccount/ViewBill" id="intcommMacViewbill">View bill</a></li>
+                            <li><a href="//myaccount.srpnet.com/MyAccount/Usage" id="intcommMacViewusage">View usage</a></li>
+                            <li><a href="//myaccount.srpnet.com/sso/Context/RouteOutages" id="intcommMacOutages">Outages</a></li>
+                            <li><a href="//myaccount.srpnet.com/sso/Context/RouteAccountHistory" id="intcommMacAccounthistory">Account history</a></li>
+                            <li><a href="//myaccount.srpnet.com/sso/AccountUpdate" id="intcommMacPreferences">Manage account</a></li>
+                        </ul>
+                    </div>
+                    <div id="intcommPwrMenu" class="span12 intcomm-menu_hidden">
+                        <ul>
+                            <li><a href="//www.srpnet.com/menu/electricres/default.aspx" id="intcommPwrResidential">Residential</a></li>
+                            <li><a href="//www.srpnet.com/menu/electricbiz/default.aspx" id="intcommPwrBusiness">Business</a></li>
+                            <li><a href="//www.srpnet.com/menu/electricres/priceplans.aspx" id="intcommPwrPriceplans">Price plans</a></li>
+                            <li><a href="//www.srpnet.com/menu/electricres/paymentbilling.aspx" id="intcommPwrBilling">Payment &amp; billing</a></li>
+                            <li><a href="//www.srpnet.com/menu/electricres/problems.aspx" id="intcommPwrProblems">If you have problems</a></li>
+                            <li><a href="//www.srpnet.com/menu/electricres/powersystem.aspx" id="intcommPwrSystem">SRP power system</a></li>
+                        </ul>
+                    </div>
+                    <div id="intcommWtrMenu" class="span12 intcomm-menu_hidden">
+                        <ul>
+                            <li><a href="//www.srpnet.com/menu/waterres/default.aspx" id="intcommWtrIrrigation">Residential</a></li>
+                            <li><a href="//www.srpnet.com/menu/waterbiz/default.aspx" id="intcommWtrBiz">Business</a></li>
+                            <li><a href="//water.srpnet.com/quickview/schedule" id="intcommWtrQuickview">Quick view</a></li>
+                            <li><a href="//www.srpnet.com/menu/waterres/savewater.aspx" id="intcommWtrConservation">Save water</a></li>
+                            <li><a href="//www.srpnet.com/menu/waterres/canalsdams.aspx" id="intcommWtrCanals">Canals, dams &amp; lakes</a></li>
+                            <li><a href="//www.srpnet.com/menu/waterres/management.aspx" id="intcommWtrManagement">Water management</a></li>
+                            <li><a href="//www.srpnet.com/menu/waterres/problems.aspx" id="intcommWtrHelping">If you have problems</a></li>
+                        </ul>
+                    </div>
+                    <div id="intcommEffMenu" class="span12 intcomm-menu_hidden">
+                        <ul>
+                            <li><a href="//www.srpnet.com/menu/savingsres/default.aspx" id="intcommEffRebates">Residential savings</a></li>
+                            <li><a href="//www.srpnet.com/menu/savingsbiz/default.aspx" id="intcommEffBizrebates">Business savings</a></li>
+                            <li><a href="//www.srpnet.com/menu/waterres/savewater.aspx" id="intcommEffWater">Save water</a></li>
+                        </ul>
+                    </div>
+
+                    <div id="intcommEnvMenu" class="span12 intcomm-menu_hidden">
+                        <ul>
+                            <li><a href="//www.srpnet.com/menu/solar/SRPcommunitysolar.aspx" id="intcommEnvCommunitysolar">SRP Community Solar</a></li>
+                            <li><a href="//www.srpnet.com/menu/solar/Rooftopsolar.aspx" id="intcommEnvRooftopsolar">Rooftop solar electric systems</a></li>
+                            <li><a href="//www.srpnet.com/menu/solar/waterheating.aspx" id="intcommEnvSolarwater">Solar water heating</a></li>
+                        </ul>
+                    </div>
+                    <div id="intcommAbtMenu" class="span12 intcomm-menu_hidden">
+                        <ul>
+                            <li><a href="//www.srpnet.com/menu/About/generalinformation.aspx" id="intcommAbtGeneral">General Information</a></li>
+                            <li><a href="//www.srpnet.com/menu/About/services.aspx" id="intcommAbtServices">Services</a></li>
+                            <li><a href="//www.srpnet.com/menu/About/community.aspx" id="intcommAbtCommunity">Community</a></li>
+                            <li><a href="//www.srpnet.com/menu/About/environment.aspx" id="intcommAbtEnvironment">SRP and the Environment</a></li>
+                            <li><a href="//www.srpnet.com/menu/About/leadership.aspx" id="intcommAbtLeadership">Leadership</a></li>
+                        </ul>
+                    </div>
+                </section>
+                <input type="hidden" id="MenuSelection" data-menuid="" data-quicklinkid="" />
+
+            </div>
+            <div id="printBanner">
+                <h4>SRP<sup>&reg;</sup> - Delivering More Than Power</h4>
+            </div>
+            <form name="aspnetForm" method="post" action="./report.aspx?dt=2%2f28%2f2017" id="aspnetForm">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTE3MTE3NDA4MTVkZEKG9ylwSZ236SJSjGkip4lgmWYkz7nwn2XgryswVUgB" />
+
+                <div id="main">
+                
+    <a id="top"></a>
+    <div class="container-fluid padTop">
+        <div class="row-fluid">
+            <div class="span9">
+                <h1>Daily Water Report</h1>
+                
+                    
+                    <div class="row-fluid">
+                        <div class="span8">
+                            <p class="alert alert-info">For Tuesday, February 28, 2017 at 0800 hours</p>
+                            The following information is prepared by SRP for water management professionals and recreational boaters and is subject to revision. 
+                            SRP does not guarantee the accuracy of this information nor make representations as to its fitness for a particular purpose. If you 
+                            have questions about this report, contact <a href="mailto:water@srpnet.com?subject=Daily Water Report">SRP Water Resources.</a>
+                        </div>   
+                        <div class="span4 temperatureTable">
+                            <p class="temperatureHeader">PHOENIX TEMPERATURES<br />Source: National Weather Service</p>
+                            <p class="temperatureValue">Yesterday's High/Low &nbsp;65/48 (F)<br/>
+                                Humidity &nbsp;93/40 (%)<br/><br/>
+                                Today's normals &nbsp;73/51 (F)
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <div class="tableResponsive">
+                            <!-- Reservoir Section -->
+                            <a id="reservoir"></a>
+                            <table class="sectionTable" cellspacing="0" cellpadding="1" border="0">
+	<tr>
+		<td valign="top" colspan="9" bgcolor="#FF9933">
+                                        <span class="sectiontitle">Reservoir data</span>
+                                        <span class="backtotop noPrint pull-right"><a href="#top">Back to top</a></span>
+                                    </td>
+	</tr><tr class="tableShade" valign="bottom">
+		<th nowrap="nowrap">&nbsp;</th><th colspan="2" nowrap="nowrap"><a href="#glsyelevation">Elevation</a> (feet)</th><th nowrap="nowrap">% Full</th><th colspan="2" nowrap="nowrap">Storage (in acre feet)</th><th nowrap="nowrap">24 hr.</th><th nowrap="nowrap">Rain</th>
+	</tr><tr class="tableShade" valign="top">
+		<th nowrap="nowrap"></th><th>Current</th><th>Remaining</th><th nowrap="nowrap"></th><th nowrap="nowrap">Current</th><th nowrap="nowrap">Available</th><th nowrap="nowrap">Change</th><th nowrap="nowrap">(inches)</th>
+	</tr><tr>
+		<td class="siteLabel" nowrap="nowrap">Roosevelt</td><td class="values values-shaded">2,114.10</td><td class="values values-shaded">36.90</td><td class="values">59</td><td class="values values-shaded">963,742</td><td class="values values-shaded">667,790</td><td class="values">4,671</td><td class="values values-shaded">0.55</td>
+	</tr><tr>
+		<td class="siteLabel" nowrap="nowrap">Horse Mesa</td><td class="values values-shaded">1,910.80</td><td class="values values-shaded">3.20</td><td class="values">97</td><td class="values values-shaded">236,716</td><td class="values values-shaded">8,422</td><td class="values">-209</td><td class="values values-shaded">0.52</td>
+	</tr><tr>
+		<td class="siteLabel" nowrap="nowrap">Mormon Flat</td><td class="values values-shaded">1,658.76</td><td class="values values-shaded">1.74</td><td class="values">97</td><td class="values values-shaded">56,206</td><td class="values values-shaded">1,646</td><td class="values">627</td><td class="values values-shaded">0.44</td>
+	</tr><tr>
+		<td class="siteLabel" nowrap="nowrap">Stewart Mtn</td><td class="values values-shaded">1,524.35</td><td class="values values-shaded">4.65</td><td class="values">92</td><td class="values values-shaded">64,031</td><td class="values values-shaded">5,734</td><td class="values">-216</td><td class="values values-shaded">0.54</td>
+	</tr><tr>
+		<td class="siteLabel" nowrap="nowrap">&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td class="values-shaded">&nbsp;</td><td class="values-shaded">&nbsp;</td><td>&nbsp;</td><td class="values-shaded">&nbsp;</td>
+	</tr><tr>
+		<td class="siteLabel" colspan="2" nowrap="nowrap">Total Salt System</td><td class="totals">&nbsp;</td><td class="totals">66</td><td class="totals values-shaded">1,320,695</td><td class="totals values-shaded">683,592</td><td class="totals">4,873</td><td class="totals values-shaded"></td>
+	</tr><tr>
+		<td class="siteLabel" nowrap="nowrap">&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td class="values-shaded">&nbsp;</td><td class="values-shaded">&nbsp;</td><td>&nbsp;</td><td class="values-shaded">&nbsp;</td>
+	</tr><tr>
+		<td class="siteLabel" nowrap="nowrap">Horseshoe</td><td class="values values-shaded">2,025.33</td><td class="values values-shaded">0.67</td><td class="values">98</td><td class="values values-shaded">107,399</td><td class="values values-shaded">1,818</td><td class="values">1,203</td><td class="values values-shaded">1.18</td>
+	</tr><tr>
+		<td class="siteLabel" nowrap="nowrap">Bartlett</td><td class="values values-shaded">1,797.43</td><td class="values values-shaded">0.57</td><td class="values">99</td><td class="values values-shaded">176,594</td><td class="values values-shaded">1,592</td><td class="values">-763</td><td class="values values-shaded">0.63</td>
+	</tr><tr>
+		<td class="siteLabel" nowrap="nowrap">&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td class="values-shaded">&nbsp;</td><td class="values-shaded">&nbsp;</td><td>&nbsp;</td><td class="values-shaded">&nbsp;</td>
+	</tr><tr>
+		<td class="siteLabel" colspan="2" nowrap="nowrap">Total Verde system</td><td class="totals">&nbsp;</td><td class="totals">99</td><td class="totals values-shaded">283,993</td><td class="totals values-shaded">3,410</td><td class="totals">440</td><td class="totals values-shaded"></td>
+	</tr><tr>
+		<td class="siteLabel" colspan="2" nowrap="nowrap">&nbsp;</td><td class="totals">&nbsp;</td><td class="totals">&nbsp;</td><td class="totals values-shaded">&nbsp;</td><td class="totals values-shaded">&nbsp;</td><td class="totals">&nbsp;</td><td class="totals values-shaded">&nbsp;</td>
+	</tr><tr>
+		<td class="siteLabel" colspan="2" nowrap="nowrap">Total reservoir system</td><td class="totals">&nbsp;</td><td class="totals">70</td><td class="totals values-shaded">1,604,688</td><td class="totals values-shaded">687,002</td><td class="totals">5,313</td><td class="totals values-shaded"></td>
+	</tr><tr>
+		<td class="siteLabel" colspan="2" nowrap="nowrap">Total system year ago</td><td class="totals">&nbsp;</td><td class="totals">57</td><td class="totals values-shaded">&nbsp;</td><td class="totals values-shaded">&nbsp;</td><td class="totals">&nbsp;</td><td class="totals values-=shaded">&nbsp;</td>
+	</tr>
+</table> <!-- End Reservoir -->
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <div class="tableResponsive">
+                            <!-- Runoff Section -->
+                            <a id="runoff"></a>
+                            <table class="sectionTable" cellspacing="0" cellpadding="4" border="0">
+	<tr>
+		<td valign="top" colspan="5" bgcolor="#FF9933">
+                                        <span class="sectiontitle"><a href="#glsyrunoff">Runoff</a> in cubic feet per second (cfs)</span>
+                                        <span class="backtotop noPrint pull-right" ><a href="#top">Back to top</a></span>
+                                    </td>
+	</tr><tr>
+		<td><table cellspacing="0" cellpadding="4" align="Left" border="0" bgcolor="White">
+			<tr class="tableShade" valign="top">
+				<th nowrap="nowrap">&nbsp;</th><th nowrap="nowrap"><strong>Yesterday<br />mean daily</strong></th><th nowrap="nowrap"><strong>%</strong></th><th nowrap="nowrap"><strong>Normal</strong></th><th nowrap="nowrap"><strong>Today</strong></th>
+			</tr><tr>
+				<td class="siteLabel" nowrap="nowrap">Salt River at Roosevelt</td><td class="values values-shaded">1,773</td><td class="values">230</td><td class="values values-shaded">772</td><td class="values">1,682</td>
+			</tr><tr>
+				<td class="siteLabel" nowrap="nowrap">Tonto Creek at Roosevelt</td><td class="values values-shaded">243</td><td class="values">221</td><td class="values values-shaded">110</td><td class="values">5,572</td>
+			</tr><tr>
+				<td class="siteLabel" nowrap="nowrap">Verde River at Tangle</td><td class="values values-shaded">814</td><td class="values">190</td><td class="values values-shaded">428</td><td class="values">3,841</td>
+			</tr><tr>
+				<td nowrap="nowrap">&nbsp;</td><td class="values-shaded">&nbsp;</td><td>&nbsp;</td><td class="values-shaded">&nbsp;</td><td>&nbsp;</td>
+			</tr><tr>
+				<td class="siteLabel" nowrap="nowrap">Total inflow</td><td class="totals values-shaded">2,830</td><td class="totals">216</td><td class="totals values-shaded">1,310</td><td class="totals">11,095</td>
+			</tr><tr>
+				<td class="siteLabel" nowrap="nowrap">Salt River Canyon</td><td class="values values-shaded">&nbsp;</td><td class="values">&nbsp;</td><td class="values values-shaded">&nbsp;</td><td class="values">1,291</td>
+			</tr><tr>
+				<td class="siteLabel" nowrap="nowrap">Verde River at Camp Verde</td><td class="values values-shaded">&nbsp;</td><td class="values">&nbsp;</td><td class="values values-shaded">&nbsp;</td><td class="values">300</td>
+			</tr>
+		</table></td>
+	</tr>
+</table> <!-- End Runoff -->
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <div class="tableResponsive">
+                            <!-- Reservoir release -->
+                            <a id="reservoirrelease"></a>
+                            <table class="sectionTable" cellspacing="0" cellpadding="4" border="0" bgcolor="White">
+	<tr>
+		<td valign="top" colspan="5" bgcolor="#FF9933">
+                                        <span class="sectiontitle" ><a href="#glsyreservoirrelease">Reservoir release</a> (in cfs)</span>
+                                        <span class="backtotop noPrint pull-right" ><a href="#top">Back to top</a></span>
+                                    </td>
+	</tr><tr>
+		<td><table cellspacing="0" cellpadding="4" align="Left" border="0" bgcolor="White">
+			<tr class="tableShade" valign="top">
+				<th nowrap="nowrap">&nbsp;</th><th nowrap="nowrap">Yesterday<br />mean daily</th><th nowrap="nowrap">%</th><th nowrap="nowrap">Normal</th><th nowrap="nowrap">Today</th>
+			</tr><tr>
+				<td class="siteLabel" nowrap="nowrap">Bartlett</td><td class="values values-shaded">544</td><td class="values">161</td><td class="values values-shaded">338</td><td class="values">793</td>
+			</tr><tr>
+				<td class="siteLabel" nowrap="nowrap">Stewart Mountain</td><td class="values values-shaded">8</td><td class="values">6</td><td class="values values-shaded">129</td><td class="values">8</td>
+			</tr><tr>
+				<td nowrap="nowrap">&nbsp;</td><td class="values-shaded">&nbsp;</td><td>&nbsp;</td><td class="values-shaded">&nbsp;</td><td>&nbsp;</td>
+			</tr><tr>
+				<td class="siteLabel" nowrap="nowrap">Total outflow</td><td class="totals values-shaded">552</td><td class="totals">118</td><td class="totals values-shaded">467</td><td class="totals">801</td>
+			</tr>
+		</table></td>
+	</tr>
+</table> <!-- End Reservoir release -->
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <div class="tableResponsive">
+                            <!-- Horseshoe Release -->
+                            <table class="horseshoetable sectionTable" cellspacing="0" cellpadding="4" border="0">
+	<tr>
+		<td>
+                                        <span class="siteLabel">Horseshoe Lake Release</span>
+                                        <span class="definition">&nbsp;&nbsp;&nbsp;1,250</span>
+                                    </td>
+	</tr>
+</table> <!-- End Horseshoe Release -->
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <div class="tableResponsive">
+                            <a id="diversions"></a>
+                            <!-- Diversions -->
+                            <table class="sectionTable" cellspacing="0" cellpadding="4" border="0">
+	<tr>
+		<td valign="top" colspan="5" bgcolor="#FF9933">
+                                        <span class="sectiontitle" ><a href="#glsydiversions">Diversions</a> at Granite Reef (in cfs)</span>
+                                        <span class="backtotop noPrint pull-right"><a href="#top">Back to top</a></span>
+                                    </td>
+	</tr><tr>
+		<td><table cellspacing="0" cellpadding="4" align="Left" border="0" bgcolor="White">
+			<tr class="tableShade" valign="top">
+				<th nowrap="nowrap">&nbsp;</th><th nowrap="nowrap">Yesterday<br />mean daily</th><th nowrap="nowrap">%</th><th nowrap="nowrap">Normal</th><th nowrap="nowrap">Today</th>
+			</tr><tr>
+				<td class="siteLabel" nowrap="nowrap">Arizona Canal</td><td class="values values-shaded">373</td><td class="values">129</td><td class="values values-shaded">289</td><td class="values">326</td>
+			</tr><tr>
+				<td class="siteLabel" nowrap="nowrap">South Canal</td><td class="values values-shaded">254</td><td class="values">109</td><td class="values values-shaded">233</td><td class="values">270</td>
+			</tr><tr>
+				<td class="siteLabel" nowrap="nowrap">Total <a href="#glsydiversions">diversions</a></td><td class="totals values-shaded">627</td><td class="totals">120</td><td class="totals values-shaded">522</td><td class="totals">596</td>
+			</tr><tr>
+				<td class="siteLabel" nowrap="nowrap">Pumping</td><td class="values values-shaded">43</td><td class="values">65</td><td class="values values-shaded">66</td><td class="values">32</td>
+			</tr><tr>
+				<td class="siteLabel" nowrap="nowrap">Total use</td><td class="totals values-shaded">670</td><td class="totals">114</td><td class="totals values-shaded">588</td><td class="totals">628</td>
+			</tr><tr>
+				<td class="siteLabel" nowrap="nowrap">Flow over Granite Reef</td><td class="totals values-shaded"></td><td class="totals">&nbsp;</td><td class="totals values-shaded">&nbsp;</td><td class="totals">328</td>
+			</tr><tr>
+				<td nowrap="nowrap">&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+			</tr><tr>
+				<td class="siteLabel" nowrap="nowrap">CAP diversions (in cfs) at 0800</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+			</tr><tr>
+				<td class="siteLabel" nowrap="nowrap">Arizona Canal</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td class="values">10</td>
+			</tr><tr>
+				<td class="siteLabel" nowrap="nowrap">South Canal</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td class="values">0</td>
+			</tr><tr>
+				<td class="siteLabel" nowrap="nowrap">Riverbed</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td class="values">0</td>
+			</tr><tr>
+				<td class="siteLabel" nowrap="nowrap">Total</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td class="totals">10</td>
+			</tr>
+		</table></td>
+	</tr>
+</table> <!-- End Diversions -->
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <div class="tableResponsive">
+                            <!-- Boatramps -->
+                            <a id="boatramp"></a>
+                            <table class="sectionTable" border="0">
+	<tr>
+		<td valign="top" bgcolor="#FF9933">
+                                        <span class="sectiontitle">Boat ramp depths (in feet) (water at end of ramp)</span>
+                                        <span class="backtotop noPrint pull-right"><a href="#top">Back to top</a></span>
+                                    </td>
+	</tr><tr>
+		<td><table align="Left" border="0">
+			<tr>
+				<td valign="top"><table id="ctl00_MainContent_RooseveltTable" class="boatramptable" cellspacing="0" cellpadding="4" border="0" bgcolor="White">
+					<tr>
+						<th colspan="2" bgcolor="#EDE9DE" nowrap="nowrap">Roosevelt Lake</th>
+					</tr><tr>
+						<td class="siteLabel" nowrap="nowrap">Badger</td><td class="values" nowrap="nowrap">68</td>
+					</tr><tr>
+						<td class="siteLabel" nowrap="nowrap">Bobcat</td><td class="values" nowrap="nowrap">-8</td>
+					</tr><tr>
+						<td class="siteLabel" nowrap="nowrap">Cholla</td><td class="values" nowrap="nowrap">60</td>
+					</tr><tr>
+						<td class="siteLabel" nowrap="nowrap">Coyote</td><td class="values" nowrap="nowrap">4</td>
+					</tr><tr>
+						<td class="siteLabel" nowrap="nowrap">Grapevine</td><td class="values" nowrap="nowrap">19</td>
+					</tr><tr>
+						<td class="siteLabel" nowrap="nowrap">Indian Point</td><td class="values" nowrap="nowrap">8</td>
+					</tr><tr>
+						<td class="siteLabel" nowrap="nowrap">Marina 4 Lane</td><td class="values" nowrap="nowrap">24</td>
+					</tr><tr>
+						<td class="siteLabel" nowrap="nowrap">Marina Dogleg</td><td class="values" nowrap="nowrap">44</td>
+					</tr><tr>
+						<td class="siteLabel" nowrap="nowrap">Ringtail</td><td class="values" nowrap="nowrap">37</td>
+					</tr><tr>
+						<td class="siteLabel" nowrap="nowrap">Schoolhouse</td><td class="values" nowrap="nowrap">4</td>
+					</tr>
+				</table></td><td valign="top"><table id="ctl00_MainContent_ApacheTable" class="boatramptable" cellspacing="0" cellpadding="4" border="0" bgcolor="White">
+					<tr>
+						<th colspan="2" bgcolor="#EDE9DE" nowrap="nowrap">Apache Lake</th>
+					</tr><tr>
+						<td class="siteLabel" nowrap="nowrap">Burnt Corral</td><td class="values" nowrap="nowrap">17</td>
+					</tr><tr>
+						<td class="siteLabel" nowrap="nowrap">Marina Central</td><td class="values" nowrap="nowrap">11</td>
+					</tr><tr>
+						<td class="siteLabel" nowrap="nowrap">Marina Main</td><td class="values" nowrap="nowrap">16</td>
+					</tr>
+				</table></td><td valign="top"><table id="ctl00_MainContent_CanyonTable" class="boatramptable" cellspacing="0" cellpadding="4" border="0" bgcolor="White">
+					<tr>
+						<th colspan="2" bgcolor="#EDE9DE" nowrap="nowrap">Canyon Lake</th>
+					</tr><tr>
+						<td class="siteLabel" nowrap="nowrap">Canyon Marina</td><td class="values" nowrap="nowrap">24</td>
+					</tr><tr>
+						<td class="siteLabel" nowrap="nowrap">Laguna</td><td class="values" nowrap="nowrap">11</td>
+					</tr><tr>
+						<td class="siteLabel" nowrap="nowrap">Ramp 1</td><td class="values" nowrap="nowrap">21</td>
+					</tr><tr>
+						<td class="siteLabel" nowrap="nowrap">Ramp 2</td><td class="values" nowrap="nowrap">11</td>
+					</tr>
+				</table></td><td valign="top"><table id="ctl00_MainContent_SaguaroTable" class="boatramptable" cellspacing="0" cellpadding="4" border="0" bgcolor="White">
+					<tr>
+						<th colspan="2" bgcolor="#EDE9DE" nowrap="nowrap">Saguaro Lake</th>
+					</tr><tr>
+						<td class="siteLabel" nowrap="nowrap">Ramps 1 and 2</td><td class="values" nowrap="nowrap">9</td>
+					</tr>
+				</table></td>
+			</tr><tr>
+				<td valign="top"><table id="ctl00_MainContent_HorseshoeTable" class="boatramptable" cellspacing="0" cellpadding="4" border="0" bgcolor="White">
+					<tr>
+						<th colspan="2" bgcolor="#EDE9DE" nowrap="nowrap">Horseshoe Lake</th>
+					</tr><tr>
+						<td class="siteLabel" nowrap="nowrap">Horseshoe</td><td class="values" nowrap="nowrap">40</td>
+					</tr>
+				</table></td><td valign="top"><table id="ctl00_MainContent_BartlettTable" class="boatramptable" cellspacing="0" cellpadding="4" border="0" bgcolor="White">
+					<tr>
+						<th colspan="2" bgcolor="#EDE9DE" nowrap="nowrap">Bartlett Lake</th>
+					</tr><tr>
+						<td class="siteLabel" nowrap="nowrap">Jojoba</td><td class="values" nowrap="nowrap">54</td>
+					</tr><tr>
+						<td class="siteLabel" nowrap="nowrap">Marina</td><td class="values" nowrap="nowrap">52</td>
+					</tr><tr>
+						<td class="siteLabel" nowrap="nowrap">Yellow Cliffs</td><td class="values" nowrap="nowrap">47</td>
+					</tr>
+				</table></td>
+			</tr>
+		</table></td>
+	</tr>
+</table>
+                            <!-- End Boatramps -->
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <!-- Report Comments -->
+                        
+                    </div>
+                    <div class="row-fluid">
+                        <!-- Glossary -->
+                        <table cellspacing="0" cellpadding="4" border="0">
+	<tr>
+		<td class="sectiontitle" valign="top">Glossary</td>
+	</tr><tr>
+		<td class="definition">
+                                    <span class = "siteLabel"><a id="glsyelevation" href="#reservoir">Elevation:</a></span> &quot;Remaining&quot; refers to
+                                    how many feet the water is below the maximum conservation storage level.
+                                </td>
+	</tr><tr>
+		<td class="definition">
+                                    <span class = "siteLabel"><a id="glsyrunoff" href="#runoff">Runoff:</a></span> Refers to water
+                                    produced from the watershed from rain and snowmelt.
+                                </td>
+	</tr><tr>
+		<td class="definition">
+                                    <span class = "siteLabel"><a id="glsyreservoirrelease" href="#reservoirrelease">Reservoir release:</a></span> Refers to
+                                    the amount of water being released from the reservoirs.
+                                </td>
+	</tr><tr>
+		<td class="definition">
+                                    <span class = "siteLabel"><a id="glsydiversions" href="#diversions">Diversions:</a></span> Canals to which the
+                                    water is diverted at Granite Reef Diversion Dam once it is released from the reservoirs
+                                    to satisfy water demand in the Valley.
+                                </td>
+	</tr>
+</table>
+                    </div>
+                
+            </div>
+            <div class="span3 columnValign noPrint">
+                <div class="noPrint well">
+                    <h4 class="noPrint">Jump down to:</h4> 
+                    <ul class="nav nav-pills nav-stacked">
+                        <li><a href="#reservoir">Reservoir data</a></li>
+                        <li><a href="#runoff">Runoff</a></li>
+                        <li><a href="#reservoirrelease">Reservoir release</a></li>	
+                        <li><a href="#diversions">Diversions</a></li>	
+                        <li><a href="#boatramp">Boat ramp</a></li>							
+                    </ul>
+                </div>
+                <div class="orangetv noPrint">
+                    <div class="tvtext">
+                        <h4>Don’t Move a Mussel</h4>
+                        <p><a href="http://www.srpnet.com/water/dams/mussels.aspx">Boaters urged to help prevent spread of damaging quagga mussels</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    </div>
+            </form>
+            <footer class="noPrint">
+                <div id="intfooternav" class="row-fluid" style="padding-left: 1em">
+                    <div id="footertabarea">
+                        <section id="intcomm-footer_tabs" class="row-fluid">
+                            <div id="corporateFooterTabs" class="tabbable span12">
+                                <ul id="myTabUL" class="nav nav-pills nav-toggle">
+                                    <li class="contact">
+                                        <a href="#intcomm-contact_tab" data-toggle="tab">
+                                            Contact us <em class="icon-circle-arrow-down"></em>
+                                        </a>
+                                    </li>
+                                    <li class="othersites">
+                                        <a href="#intcomm-other_tab" data-toggle="tab">
+                                            View our
+                                            other sites <em class="icon-circle-arrow-down"></em>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane" id="intcomm-contact_tab">
+                                        <section id="intcomm-con_address" class="span2">
+                                            <h5>
+                                                Address
+                                            </h5>
+                                            <span class="footerdata">SRP headquarters</span> <span class="footerdata">
+                                                                                                 1521 N. Project
+                                                                                                 Drive
+                                                                                             </span> <span class="footerdata">Tempe, Az 85281-1298</span>
+                                        </section>
+                                        <section id="intcomm-con_mailing" class="span3">
+                                            <h5>
+                                                Mailing address
+                                            </h5>
+                                            <span class="footerdata">SRP Customer correspondence</span> <span class="footerdata">
+                                                                                                            P.O. Box 52025
+                                                                                                        </span> <span class="footerdata">Phoenix, Az 85072-2025</span>
+                                        </section>
+                                        <section id="intcomm-con_numbers" class="span3">
+                                            <h5>
+                                                Contact numbers
+                                            </h5>
+                                            <span class="footerdata">Residential electric: (602) 236-8888</span> <span class="footerdata">
+                                                                                                                     Business electric: (602) 236-8833
+                                                                                                                 </span> <span class="footerdata">
+                                                                                                                             SRP irrigation (602) 236-3333
+                                                                                                                         </span><span class="footerdata">Power emergency: (602) 236-8811</span>
+                                        </section>
+                                        <section id="intcomm-con_email" class="span4">
+                                            <h5>
+                                                Email
+                                            </h5>
+                                            <span class="footerdata"><a href="//www.srpnet.com/contactus/emailnotification/corrsvcs.aspx" target="_self">Electric service questions</a></span> <span class="footerdata">
+                                                                                                                                                                                                   <a href="//www.srpnet.com/contactus/water/secure/Contactform" target="_self">
+                                                                                                                                                                                                       Water questions/issues
+                                                                                                                                                                                                   </a>
+                                                                                                                                                                                               </span> <span class="footerdata"><a href="//www.srpnet.com/contactus/default.aspx">General, non-emergency issues</a></span>
+
+                                        </section>
+                                        <button type="button" class="close" data-dismiss="tab-content">
+                                            ×
+                                        </button>
+                                    </div>
+                                    <div class="tab-pane" id="intcomm-other_tab">
+                                        <section id="intcomm-othr_save" class="span2">
+                                            <h5>
+                                                <a href="http://www.savewithsrp.com">SaveWithSRP.com</a>
+                                            </h5>
+                                            <span class="footerdata">
+                                                Your one-stop shop for information about SRP's money and energy-saving
+                                                programs.
+                                            </span>
+                                        </section>
+                                        <section id="intcomm-othr_savebiz" class="span2">
+                                            <h5>
+                                                <a href="http://www.savewithsrpbiz.com">SaveWithSRPBiz.com</a>
+                                            </h5>
+                                            <span class="footerdata">Cut costs with SRP's energy-saving programs for businesses.</span>
+                                        </section>
+                                        <section id="intcomm-othr_misrp" class="span2">
+                                            <h5>
+                                                <a href="http://www.powertogrowphx.com">PowerToGrowPHX.com</a>
+                                            </h5>
+                                            <span class="footerdata">Connect to the resources you need to locate your business in Greater Phoenix.</span>
+                                        </section>
+                                        <section id="intcomm-othr_conserve" class="span3">
+                                            <h5>
+                                                <a href="http://www.togetherweconserve.com">TogetherWeConserve.com</a>
+                                            </h5>
+                                            <span class="footerdata">
+                                                Get water-saving tips and learn about SRP's role in delivering
+                                                water from mountain watershed to your shower head.
+                                            </span>
+                                        </section>
+                                        <section id="intcomm-othr_tele" class="span2">
+                                            <h5>
+                                                <a href="http://www.srptelecom.com">SRPTelecom.com</a>
+                                            </h5>
+                                            <span class="footerdata">
+                                                Tap into Arizona's largest network of telecom services in the
+                                                Phoenix area.
+                                            </span>
+                                        </section>
+                                        <button type="button" class="close" data-dismiss="tab-content">
+                                            ×
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <div class="row-fluid noPrint">
+            <div>
+                <p id="copyright">
+                    © 1996-2014 SRP
+                    <br />
+                    <span class="privacypolicy"><a href="http://www.srpnet.com/about/webpolicy.aspx">Privacy policy &amp; site disclaimer</a></span>
+                </p>
+            </div>
+        </div>
+    </body>
+</html>
