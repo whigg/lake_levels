@@ -27,14 +27,16 @@ def GetAverages(weather):
 
 tree = GetRawData('2/28/2017')
 weather = tree.xpath('//p[@class="temperatureValue"]/text()')
+reservoirs = tree.xpath('//td[@class="siteLabel"]/text()')
+reservoirs_shaded = tree.xpath('//td[@class="values values-shaded"]/text()')
+reservoirs_unshaded = tree.xpath('//td[@class="values"]/text()')
 temps = GetTemperatures(weather)
 humidity = GetHumidity(weather)
 averages = GetAverages(weather)
-print temps[0] + " F"
-print temps[1] + " F"
-print averages[0] + " F"
-print averages[1] + " F"
-print humidity[0] + " %"
-print humidity[1] + " %"
-
-
+#print temps[0] + " F"
+#print temps[1] + " F"
+#print averages[0] + " F"
+#print averages[1] + " F"
+#print humidity[0] + " %"
+#print humidity[1] + " %"
+print reservoirs[0] + ": " + reservoirs_shaded[0] + " : " + reservoirs_shaded[1] + " : " + reservoirs_unshaded[0] + " : " + reservoirs_shaded[2] + " : " + reservoirs_shaded[3] + " : " + reservoirs_unshaded[1] + " : " + reservoirs_shaded[4]
